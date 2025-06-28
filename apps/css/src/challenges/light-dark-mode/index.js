@@ -1,5 +1,5 @@
-const themeSwitch = document.getElementById('themeSwitch');
-const innnerThemeSwitch = document.getElementById('innnerThemeSwitch');
+const themeSwitch = document.querySelector('#themeSwitch');
+const innnerThemeSwitch = document.querySelector('#innnerThemeSwitch');
 
 themeSwitch.addEventListener('change', function () {
   if (themeSwitch.checked) {

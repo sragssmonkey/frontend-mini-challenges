@@ -16,7 +16,9 @@ body.dark .navbar-app a img {
 .inner-container {
   margin: 1rem 0;
   padding: 2.5%;
-  border: 1px solid blue;
+  border: 2px solid rgb(95, 95, 95);
+  border-radius: 15px;
+  font-family:'Courier New', Courier, monospace;
 }
 
 body.dark,

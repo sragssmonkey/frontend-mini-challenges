@@ -99,3 +99,7 @@
   width: 600%;
   background-color: var(--hand-color);
 }
+.cycles{
+  color: black;
+  font-family: 'Courier New', Courier, monospace;
+}

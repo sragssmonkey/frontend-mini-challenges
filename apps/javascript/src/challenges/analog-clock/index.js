@@ -4,6 +4,7 @@ const hoursHand = document.querySelector('.hours-hand');
 const minutesHand = document.querySelector('.minutes-hand');
 const secondsHand = document.querySelector('.seconds-hand');
 const clockDigitsEl = document.querySelector('.digits');
+const cycles=document.querySelector(".cycles");
 
 const clockDigits = [12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 const ticksCount = 60;
@@ -43,3 +44,39 @@ const setClockHands = () => {
 
 setInterval(setClockHands, 1000);
 setClockHands();
+
+//ADDING POMODORO CYCLE COUNT
+
+let pomodoroDuration = 25 * 60; // 25 minutes in seconds
+let timeLeft = pomodoroDuration;
+let pomodoroCount = 0;
+let cycleCount = 0;
+let isRunning = false;
+
+const updateCycles = () => {
+  cycles.textContent = `Pomodoros: ${pomodoroCount} | Cycles: ${cycleCount}`;
+};
+
+const startPomodoro = () => {
+  if (isRunning) return;
+  isRunning = true;
+
+  const interval = setInterval(() => {
+    setClockHands(); 
+    timeLeft--;
+
+    if (timeLeft <= 0) {
+      pomodoroCount++;
+      if (pomodoroCount % 4 === 0) {
+        cycleCount++; 
+      }
+
+      updateCycles();
+
+      timeLeft = pomodoroDuration; 
+    }
+  }, 1000);
+};
+setInterval(setClockHands, 1000);
+startPomodoro();
+
